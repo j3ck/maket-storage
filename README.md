@@ -1,0 +1,1 @@
+Maket storage to digitalizm
