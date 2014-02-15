@@ -1,5 +1,9 @@
 MaketStorage::Application.routes.draw do
-  resources :projects
+  resources :projects do
+    member do
+      resource :versions
+    end
+  end
 
   devise_for :users, :skip => [:registration]
   # The priority is based upon order of creation: first created -> highest priority.
