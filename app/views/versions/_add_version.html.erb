@@ -1,5 +1,6 @@
 <%= form_for version do |f| %>
 	<%= f.text_field "name", placeholder: "Version tag" %>
+	<%= f.hidden_field :project_id, :value => version.project_id %>
 
 	<%= f.submit "Add Version" %>
 <% end %>
