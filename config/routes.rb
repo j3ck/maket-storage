@@ -1,9 +1,10 @@
 MaketStorage::Application.routes.draw do
   resources :projects do
-    member do
       resources :versions
-    end
+    get "versions/:id" => "versions#show"
   end
+
+  resources :versions
 
   devise_for :users, :skip => [:registration]
   # The priority is based upon order of creation: first created -> highest priority.
