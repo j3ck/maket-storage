@@ -1,4 +1,9 @@
 class VersionsController < ApplicationController
+	before_action :set_version, only: [:show, :edit, :update, :destroy]
+
+	def show
+	end
+
 	def create
 		@version = Version.new(version_params)
 
@@ -12,6 +17,10 @@ class VersionsController < ApplicationController
 	end
 
 	private
+		def set_version
+			@version = Version.find(params[:id])
+		end
+			
 		def version_params
 			params.require(:version).permit(:name, :project_id) 
 		end

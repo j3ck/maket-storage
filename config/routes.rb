@@ -1,7 +1,7 @@
 MaketStorage::Application.routes.draw do
   resources :projects do
     member do
-      resource :versions
+      resources :versions
     end
   end
 
