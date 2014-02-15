@@ -11,6 +11,7 @@ MaketStorage::Application.routes.draw do
   # Example of regular route:
   devise_scope :user do
     root to: 'devise/sessions#new'
+    get 'sign_out' => 'devise/sessions#destroy'
   end
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
