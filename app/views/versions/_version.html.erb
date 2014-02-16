@@ -1,4 +1,5 @@
 <div>
 	<%= version.name %>
 	<%= link_to "show", project_version_path(version.project.id, version) %>
+	<%= link_to "delete", project_version_path(version.project_id, version), method: :delete, data: { confirm: 'Are you sure?' }  %>
 </div>

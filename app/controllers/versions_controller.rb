@@ -16,6 +16,13 @@ class VersionsController < ApplicationController
 		end
 	end
 
+	def destroy
+	    @version.destroy
+	    respond_to do |format|
+	      format.html { redirect_to @version.project }
+	    end
+  	end
+
 	private
 		def set_version
 			@version = Version.find(params[:id])

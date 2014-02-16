@@ -1,4 +1,4 @@
-<%= form_for version do |f| %>
+<%= form_for [version.project, version] do |f| %>
 	<%= f.text_field "name", placeholder: "Version tag" %>
 	<%= f.hidden_field :project_id, :value => version.project_id %>
 
