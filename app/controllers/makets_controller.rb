@@ -1,4 +1,5 @@
 class MaketsController < ApplicationController
+before_action :set_maket, only: [:edit, :update, :destroy]
 
 	def create
 		@maket = Maket.new(maket_params)
@@ -14,7 +15,19 @@ class MaketsController < ApplicationController
 		@maket = Maket.find_by_image_fingerprint(params[:id])
 	end
 
+	def destroy
+		@maket.destroy
+	    respond_to do |format|
+	      format.html { redirect_to @maket.version }
+	      format.json { head :no_content }
+	    end
+	end
+
 	private
+		def set_maket
+			@maket = Maket.find(params[:id])
+		end
+
 		def maket_params
 			params.require(:maket).permit(:name, :version_id, :image)
 		end
