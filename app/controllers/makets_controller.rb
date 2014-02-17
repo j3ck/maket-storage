@@ -2,6 +2,7 @@ class MaketsController < ApplicationController
 
 	def create
 		@maket = Maket.new(maket_params)
+		@maket.name = 
 		if @maket.save
 
 		else
@@ -10,7 +11,7 @@ class MaketsController < ApplicationController
 	end
 
 	def show
-		@maket = Maket.find(params[:id])
+		@maket = Maket.find_by_image_fingerprint(params[:id])
 	end
 
 	private
