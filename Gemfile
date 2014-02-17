@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.0.2'
 
+gem 'zeroclipboard-rails'
 gem 'devise'
 gem 'cancan'
 gem 'bootstrap-sass', '~> 3.1.1'
