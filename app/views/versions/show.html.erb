@@ -1,2 +1,6 @@
 <%= @version.project.name %>
 <%= @version.name %>
+
+<% @version.makets.each do |maket| %>
+	<%= maket.name %>
+<% end %>
