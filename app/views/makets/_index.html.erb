@@ -1,0 +1,3 @@
+<%= render :partial => "makets/maket", :collection => @version.makets, :as => 'maket' %>
+
+<%= render 'makets/add_maket', :maket => @version.makets.build %>

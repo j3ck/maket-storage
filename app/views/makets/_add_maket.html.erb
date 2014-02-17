@@ -1,0 +1,6 @@
+<%= form_for maket do |f| %>
+	Upload a img:<%= f.file_field :image %>
+	<%= f.hidden_field :version_id, :value => maket.version_id %>
+
+	<%= f.submit "Add Maket" %>
+<% end %>
