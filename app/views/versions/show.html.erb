@@ -1,4 +1,2 @@
-<%= @version.project.name %>
-<%= @version.name %>
-
+<%= link_to ("Projects"), projects_path %> / <%= link_to (@version.project.name), @version.project %> / <%= @version.name %>
 <%= render 'makets/index' %>
