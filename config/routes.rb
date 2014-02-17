@@ -1,4 +1,5 @@
 MaketStorage::Application.routes.draw do
+  resources :makets
   resources :projects do
       resources :versions
     get "versions/:id" => "versions#show"
