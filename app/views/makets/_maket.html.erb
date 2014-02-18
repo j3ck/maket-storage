@@ -2,5 +2,5 @@
 <%= maket.name %>
 <%= maket.image_fingerprint %>
 <%= link_to "show", maket %>
-<%= link_to "copy to clipboard" %>
+<%= link_to "click to copy in clipboard", maket, class: "copy_text", remote: true %>
 <%= link_to 'delete', maket, method: :delete, data: { confirm: 'Are you sure?' } %>
