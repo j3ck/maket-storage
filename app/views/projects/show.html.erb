@@ -1,5 +1,7 @@
-/ <%= link_to "Projects", projects_path %> / <%= @project.name %>
-
+<ol class="breadcrumb">
+  <li><%= link_to "Projects", projects_path %></li>
+  <li class="active"><%= @project.name %></li>
+</ol>
 <p id="notice"><%= notice %></p>
 
 <%= render 'versions/index' %>
