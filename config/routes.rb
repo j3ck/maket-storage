@@ -2,8 +2,7 @@ MaketStorage::Application.routes.draw do
   resources :makets, only: [:create, :destroy]
     get "makets/:id" => "makets#show"
   resources :projects do
-      resources :versions, only: [:create, :destroy]
-    get "ver/:id" => "versions#show"
+      resources :versions
   end
 
   devise_for :users, :skip => [:registration]
