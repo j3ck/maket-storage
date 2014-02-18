@@ -3,9 +3,15 @@
 	height: 235px;
 	.form-control {
 		height: 45px;
+		font-size: 16px;
 	}
 	.top {
 		border-radius: 4px 4px 0 0;
+		margin-bottom: -1px;
+	}
+	.form-control:focus {
+		z-index: 2;
+		position: relative;
 	}
 	.bot {
 		border-radius: 0 0 4px 4px;
