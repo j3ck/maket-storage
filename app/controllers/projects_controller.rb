@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_filter :right_owner, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
 
   # GET /projects
@@ -74,5 +75,10 @@ class ProjectsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
       params.require(:project).permit(:name, :user_id)
+    end
+
+    def right_owner
+      @project = Project.find(params[:id])
+      redirect_to(root_path) unless @project.user_id == current_user.id
     end
 end
