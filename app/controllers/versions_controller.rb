@@ -6,6 +6,9 @@ class VersionsController < ApplicationController
 	def show
 	end
 
+	def edit
+  	end
+
 	def create
 		@version = Version.new(version_params)
 
@@ -13,7 +16,7 @@ class VersionsController < ApplicationController
 			if @version.save
 				format.html { redirect_to @version.project, notice: "Version created successfull" }
 			else
-				format.html { render 'versions/add_version', :version => @version }
+				format.html { redirect_to @version.project, notice: "Name is not valid" }
 			end
 		end
 	end
