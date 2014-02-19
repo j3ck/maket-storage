@@ -1,6 +1,10 @@
-<%= form_for maket do |f| %>
-	Upload a img:<%= f.file_field :image %>
-	<%= f.hidden_field :version_id, :value => maket.version_id %>
+<%= form_for maket, :html => { class:"", role:"form" } do |f| %>
+	<%= f.text_field :name, placeholder: "Name", class: "form-control" %>
 
-	<%= f.submit "Add Maket" %>
+	<div class="form-group">
+		<%= f.file_field :image %>
+		<%= f.hidden_field :version_id, :value => maket.version_id %>
+	</div>
+
+	<%= f.submit "Add Maket", class: "btn btn-success btn-sm" %>
 <% end %>

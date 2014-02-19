@@ -1,6 +1,7 @@
-<br>
-<%= maket.name %>
-<%= maket.image_fingerprint %>
-<%= link_to "show", maket %>
-<%= link_to "click to copy in clipboard", maket, class: "copy_text", remote: true %>
-<%= link_to 'delete', maket, method: :delete, data: { confirm: 'Are you sure?' } %>
+<tr class="warning">
+<td><%= maket.name %></td>
+<td><%= maket.image_fingerprint %></td>
+<td><%= link_to "show", maket, target: "_blank" %></td>
+<td><%= link_to "click to copy in clipboard", maket, class: "copy_text", remote: true %></td>
+<td><%= link_to 'delete', maket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>

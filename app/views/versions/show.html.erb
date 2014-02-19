@@ -1,2 +1,6 @@
-/ <%= link_to ("Projects"), projects_path %> / <%= link_to (@version.project.name), @version.project %> / <%= @version.name %>
+<ol class="breadcrumb">
+  <li><%= link_to ("Projects"), projects_path %></li>
+  <li><%= link_to (@version.project.name), @version.project %></li>
+  <li class="active"><%= @version.name %></li>
+</ol>
 <%= render 'makets/index' %>

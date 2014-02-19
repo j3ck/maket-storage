@@ -11,3 +11,33 @@
  *= require_self
  *= require_tree .
  */
+
+@import "bootstrap";
+
+.container {
+	width: 730px;
+}
+
+.breadcrumb {
+	margin-bottom: 0;
+	border-bottom: 1px solid #e5e5e5;
+	font-size: 16px;
+}
+
+.header {
+	border-bottom: 1px solid #e5e5e5;
+	h3 {
+		display: inline-block;
+	}
+	.navbar-text {
+		margin-top: 30px;
+	}
+}
+
+a {
+	color: #805AD1;
+}
+
+a:hover {
+	color: #4B249E;
+}
