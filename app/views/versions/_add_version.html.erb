@@ -1,6 +1,6 @@
-<%= form_for [version.project, version] do |f| %>
-	<%= f.text_field "name", placeholder: "Version tag" %>
+<%= form_for [version.project, version], :html => { class:"form-inline", role:"form" } do |f| %>
+	<%= f.text_field "name", placeholder: "Version tag", class: "form-control"%>
 	<%= f.hidden_field :project_id, :value => version.project_id %>
 
-	<%= f.submit "Add Version" %>
+	<%= f.submit "Add Version", class: "btn btn-success btn-sm" %>
 <% end %>

@@ -2,8 +2,4 @@
   <li><%= link_to "Projects", projects_path %></li>
   <li class="active"><%= @project.name %></li>
 </ol>
-<p id="notice"><%= notice %></p>
-
 <%= render 'versions/index' %>
-
-<%= link_to 'Edit', edit_project_path(@project) %> |

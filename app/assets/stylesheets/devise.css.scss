@@ -16,4 +16,19 @@
 	.bot {
 		border-radius: 0 0 4px 4px;
 	}
+
+	.btn-primary {
+		background: #9759E3;
+		border-color: #883AE8;
+	}
+
+	.btn-primary:hover {
+		background: #8A31F7;
+		border-color: #883AE8;
+	}
+
+	.btn-primary:focus {
+		background: #8A31F7;
+		border-color: #883AE8;
+	}
 }

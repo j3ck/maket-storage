@@ -1,3 +1,6 @@
-<%= render :partial => "versions/version", :collection => @project.versions, :as => 'version' %>
-
+<div class="jumbotron">
+	<table class="table table-hover ">
+		<%= render :partial => "versions/version", :collection => @project.versions, :as => 'version' %>
+	</table>
+</div>
 <%= render 'versions/add_version', :version => @project.versions.build %>

@@ -14,31 +14,14 @@
 
 @import "bootstrap";
 
-.form-control:focus {
-
-}
-
-.btn-primary {
-	background: #9759E3;
-	border-color: #883AE8;
-}
-
-.btn-primary:hover {
-	background: #8A31F7;
-	border-color: #883AE8;
-}
-
-.btn-primary:focus {
-	background: #8A31F7;
-	border-color: #883AE8;
-}
-
 .container {
 	width: 730px;
 }
 
 .breadcrumb {
 	margin-bottom: 0;
+	border-bottom: 1px solid #e5e5e5;
+	font-size: 16px;
 }
 
 .header {
@@ -49,4 +32,12 @@
 	.navbar-text {
 		margin-top: 30px;
 	}
+}
+
+a {
+	color: #805AD1;
+}
+
+a:hover {
+	color: #4B249E;
 }
