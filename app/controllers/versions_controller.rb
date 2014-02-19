@@ -1,5 +1,6 @@
 class VersionsController < ApplicationController
 	before_action :set_version, only: [:show, :edit, :update, :destroy]
+	before_filter :right_owner, only: [:show, :edit, :update, :destroy]
 	before_filter :authenticate_user!
 
 	def show
@@ -31,5 +32,10 @@ class VersionsController < ApplicationController
 			
 		def version_params
 			params.require(:version).permit(:name, :project_id) 
+		end
+
+		def right_owner
+			@version = Version.find(params[:id])
+      		redirect_to(root_path) unless @version.project.user_id == current_user.id
 		end
 end
