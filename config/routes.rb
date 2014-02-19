@@ -4,7 +4,7 @@ MaketStorage::Application.routes.draw do
       resources :versions
   end
 
-  devise_for :users, :skip => [:registration]
+  devise_for :users, path: '', :skip => [:registration]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".\
 
