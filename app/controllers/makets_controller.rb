@@ -1,5 +1,5 @@
 class MaketsController < ApplicationController
-before_action :set_maket, only: [:edit, :update, :destroy]
+before_action :set_maket, only: [:edit, :update]
 
 	def create
 		@maket = Maket.new(maket_params)
@@ -16,6 +16,7 @@ before_action :set_maket, only: [:edit, :update, :destroy]
 	end
 
 	def destroy
+		@maket = Maket.find_by_image_fingerprint(params[:id])
 		@maket.destroy
 	    respond_to do |format|
 	      format.html { redirect_to @maket.version }
