@@ -6,19 +6,19 @@ class VersionsController < ApplicationController
 	def show
 	end
 
-	def edit
-  	end
-
 	def create
 		@version = Version.new(version_params)
 
-		respond_to do |format|
-			if @version.save
-				format.html { redirect_to @version.project, notice: "Version created successfull" }
-			else
-				format.html { redirect_to @version.project, notice: "Name is not valid" }
-			end
+		is_create = @version.save
+		if is_create
+			version_html = render_to_string( :partial => 'versions/version', :formats => [:html], :locals => { :version => @version } )
+			form_html = render_to_string( :partial => 'versions/add_version',
+                                      :formats => [:html],
+                                      :locals => { :version => @version.project.versions.build } )
+		else
+			form_html = render_to_string( :partial => 'versions/add_version', :formats => [:html], :locals => { :version => @version } )
 		end
+		render :json => { :create_status => is_create, :form_html => form_html, :version_html => version_html }
 	end
 
 	def destroy

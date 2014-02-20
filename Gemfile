@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.0.2'
 
-
+gem 'remotipart', '~> 1.2'
 gem 'jquery-turbolinks'
 gem 'zeroclipboard-rails'
 gem 'devise'
