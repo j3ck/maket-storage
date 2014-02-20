@@ -3,5 +3,4 @@
 		<%= render :partial => "versions/version", :collection => @project.versions, :as => 'version' %>
 	</table>
 </div>
-<%= notice %>
 <%= render 'versions/add_version', :version => @project.versions.build %>

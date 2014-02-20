@@ -3,5 +3,4 @@
 		<%= render :partial => "makets/maket", :collection => @version.makets, :as => 'maket' %>
 	</table>
 </div>
-<%= notice %>
 <%= render 'makets/add_maket', :maket => @version.makets.build %>
