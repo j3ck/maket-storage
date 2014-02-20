@@ -1,16 +1,19 @@
 class MaketsController < ApplicationController
-before_action :set_maket, only: [:edit, :update]
+before_action :set_maket, only: [:edit, :update] 
 
 	def create
 		@maket = Maket.new(maket_params)
 
-		respond_to do |format|
-			if @maket.save
-				format.html { redirect_to @maket.version, notice: "Maket created successfull" }
-			else
-				format.html { redirect_to [@maket.version.project, @maket.version], notice: "Name is not valid" }
-			end
+		is_create = @maket.save
+		if is_create
+			maket_html = render_to_string( :partial => 'makets/maket', :formats => [:html], :locals => { :maket => @maket } )
+			form_html = render_to_string( :partial => 'makets/add_maket',
+                                      :formats => [:html],
+                                      :locals => { :maket => @maket.version.makets.build } )
+		else
+			form_html = render_to_string( :partial => 'makets/add_maket', :formats => [:html], :locals => { :maket => @maket } )
 		end
+		render :json => { :create_status => is_create, :form_html => form_html, :maket_html => maket_html }
 	end
 
 	def show
