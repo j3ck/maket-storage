@@ -17,9 +17,6 @@ before_action :set_maket, only: [:edit, :update]
 		@maket = Maket.find_by_image_fingerprint(params[:id])
 	end
 
-	def edit
-  	end
-
 	def destroy
 		@maket = Maket.find_by_image_fingerprint(params[:id])
 		@maket.destroy
