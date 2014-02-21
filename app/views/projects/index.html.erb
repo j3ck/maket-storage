@@ -6,6 +6,9 @@
     <% @projects.each do |project| %>
       <tr class="warning">
         <td><%= link_to (project.name), project %></td>
+        <% if current_user.role == "Administrator" %>
+          <td>Creator: <%= project.user.email %></td>
+        <% end %>
         <td><%= link_to 'Show', project %></td>
         <td><%= link_to 'Edit', edit_project_path(project) %></td>
         <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
