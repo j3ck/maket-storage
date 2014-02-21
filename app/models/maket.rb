@@ -3,6 +3,11 @@ class Maket < ActiveRecord::Base
 
 	has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
 
+	has_attached_file :image, {
+    :url => "/system/:hash.:extension",
+    :hash_secret => "longSecretString"
+}
+
 	validates :name, presence: true
 	validates :name, length: { minimum: 1 }
 	validates :image, presence: true
