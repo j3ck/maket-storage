@@ -1,4 +1,5 @@
 MaketStorage::Application.routes.draw do
+  resources :users
   resources :makets, only: [:show, :create, :destroy]
   resources :projects do
       resources :versions

@@ -1,4 +1,5 @@
 class VersionsController < ApplicationController
+	load_and_authorize_resource
 	before_action :set_version, only: [:show, :edit, :update, :destroy]
 	before_filter :right_owner, only: [:show, :edit, :update, :destroy]
 	before_filter :authenticate_user!
@@ -39,6 +40,8 @@ class VersionsController < ApplicationController
 
 		def right_owner
       		@version = Version.find(params[:id])
-      		redirect_to(root_path) unless @version.project.user_id == current_user.id
+      		unless current_user.role == "Administrator"
+      			redirect_to(root_path) unless @version.project.user_id == current_user.id
+    		end
     	end
 end

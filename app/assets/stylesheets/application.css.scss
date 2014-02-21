@@ -47,3 +47,15 @@ a:hover {
 	width: 196px;
 	display: inline-block;
 }
+
+.nav {
+	.nav-pills {
+		.active {
+			background-color: #FFE51F; 
+		}
+	}
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+	background-color: #805AD1; 	
+}

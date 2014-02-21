@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_project, only: [:show, :edit, :update, :destroy]
   before_filter :right_owner, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
@@ -6,10 +7,11 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    #if current_user.role == admin  # role comming soon
-    #  @projects = Project.all
-    #else
+    if current_user.role == "Administrator"
+      @projects = Project.all
+    else
       @projects = current_user.projects
+    end
   end
 
   # GET /projects/1
@@ -79,6 +81,8 @@ class ProjectsController < ApplicationController
 
     def right_owner
       @project = Project.find(params[:id])
-      redirect_to(root_path) unless @project.user_id == current_user.id
+      unless current_user.role == "Administrator"
+        redirect_to(root_path) unless @project.user_id == current_user.id
+      end
     end
 end

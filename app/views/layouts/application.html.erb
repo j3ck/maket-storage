@@ -13,11 +13,16 @@
 <% else %>
 	<div class="container">
 		<div class="header">
-			<h3 class="text-muted">Maket storage</h3>
+					<h3 class="text-muted">Maket storage</h3>
 			<% if user_signed_in? %>
-				<%= render 'layouts/user_bar' %>
+					<%= render 'layouts/user_bar' %>
 			<% end %>
 		</div>
+		<% if user_signed_in? %>
+			<% if current_user.role == "Administrator" %>
+				<%= render 'layouts/admin_navs' %>
+			<% end %>
+		<% end %>
 		<%= yield %>
 	</div>
 <% end %>
