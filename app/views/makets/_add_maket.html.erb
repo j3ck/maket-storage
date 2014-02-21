@@ -1,0 +1,26 @@
+<div class="maket_wrapper">
+<%= form_for maket,  :format => :json, :remote => true, :html => { :'data-type' => 'json', class:"form-inline", role:"form" } do |f| %>
+
+	<% if maket.errors.any? %>
+	    <div class="panel panel-danger">
+	      <div class="panel-heading">
+	      	<%= pluralize(maket.errors.count, "error") %> prohibited this maket from being saved:
+	      </div>
+
+	      <ul>
+	      <% maket.errors.full_messages.each do |msg| %>
+	        <li><%= msg %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+  	<% end %>
+
+  <%= f.text_field :name, placeholder: "Maket name", class: "form-control" %>
+  <div class="form-group">
+    <%= f.file_field :image %>
+    <%= f.hidden_field :version_id, :value => maket.version_id %>
+  </div>
+
+  <%= f.submit "Add Maket", class: "btn btn-success btn-sm" %>
+<% end %>
+</div>

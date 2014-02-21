@@ -1,5 +1,11 @@
 MaketStorage::Application.routes.draw do
-  devise_for :users, :skip => [:registration]
+  resources :users
+  resources :makets, only: [:show, :create, :destroy]
+  resources :projects do
+      resources :versions
+  end
+
+  devise_for :users, path: '', :skip => [:registration]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".\
 
@@ -9,6 +15,7 @@ MaketStorage::Application.routes.draw do
   # Example of regular route:
   devise_scope :user do
     root to: 'devise/sessions#new'
+    get 'sign_out' => 'devise/sessions#destroy'
   end
 
   # Example of named route that can be invoked with purchase_url(id: product.id)

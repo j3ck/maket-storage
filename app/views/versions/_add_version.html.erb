@@ -1,0 +1,23 @@
+<div class="version_wrapper">
+<%= form_for [version.project, version], :format => :json, :remote => true, :html => { class:"form-inline", role:"form" } do |f| %>
+
+  <% if version.errors.any? %>
+    <div class="panel panel-danger">
+      <div class="panel-heading">
+      	<%= pluralize(version.errors.count, "error") %> prohibited this version from being saved:
+      </div>
+
+      <ul>
+      <% version.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+	<%= f.text_field "name", placeholder: "Version tag", class: "form-control"%>
+	<%= f.hidden_field :project_id, :value => version.project_id %>
+
+	<%= f.submit "Add Version", class: "btn btn-success btn-sm" %>
+<% end %>
+</div>

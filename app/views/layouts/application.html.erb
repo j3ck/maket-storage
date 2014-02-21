@@ -7,8 +7,24 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+<%# if current_page?(url_for(:controller => 'makets', :action => 'show')) %>
+<% if params[:controller] == 'makets' %>
+	<%= yield %>
+<% else %>
+	<div class="container">
+		<div class="header">
+					<h3 class="text-muted">Maket storage</h3>
+			<% if user_signed_in? %>
+					<%= render 'layouts/user_bar' %>
+			<% end %>
+		</div>
+		<% if user_signed_in? %>
+			<% if current_user.role == "Administrator" %>
+				<%= render 'layouts/admin_navs' %>
+			<% end %>
+		<% end %>
+		<%= yield %>
+	</div>
+<% end %>
 </body>
 </html>

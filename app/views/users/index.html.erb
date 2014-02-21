@@ -1,0 +1,17 @@
+<ol class="breadcrumb">
+  <li class="active">Users</li>
+</ol>
+<div class="jumbotron">
+  <table class="table table-hover ">
+    <% @users.each do |user| %>
+      <tr class="warning">
+        <td><%= user.email %></td>
+        <td><%= user.role %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<%= link_to 'New User', new_user_path %>
