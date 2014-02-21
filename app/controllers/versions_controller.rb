@@ -1,5 +1,5 @@
 class VersionsController < ApplicationController
-	load_and_authorize_resource
+	load_and_authorize_resource except: [:create]
 	before_action :set_version, only: [:show, :edit, :update, :destroy]
 	before_filter :right_owner, only: [:show, :edit, :update, :destroy]
 	before_filter :authenticate_user!
