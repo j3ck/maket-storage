@@ -13,6 +13,12 @@
 //= require zeroclipboard
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap
 //= require jquery.remotipart
 //= require jquery.turbolinks
 //= require_tree .
+
+
+$(document).ready(function() {
+	$('.alert').delay( 3000 ).fadeOut();
+})
