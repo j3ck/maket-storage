@@ -82,7 +82,10 @@ class ProjectsController < ApplicationController
     def right_owner
       @project = Project.find(params[:id])
       unless current_user.role == "Administrator"
-        redirect_to(root_path) unless @project.user_id == current_user.id
+        unless @project.user_id == current_user.id
+          redirect_to(projects_url)
+          flash[:error] = "Access denied."
+        end
       end
     end
 end

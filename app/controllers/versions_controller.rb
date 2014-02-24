@@ -41,7 +41,10 @@ class VersionsController < ApplicationController
 		def right_owner
       		@version = Version.find(params[:id])
       		unless current_user.role == "Administrator"
-      			redirect_to(root_path) unless @version.project.user_id == current_user.id
+      			unless @version.project.user_id == current_user.id
+	      			redirect_to(@version.project)
+	      			flash[:error] = "Access denied."
+      			end
     		end
     	end
 end
