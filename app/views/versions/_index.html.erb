@@ -1,5 +1,6 @@
 <div class="jumbotron">
 	<h3>Versions</h3>
+	<%= render 'versions/add_version', :version => @project.versions.build %>
 	<table class="table table-hover versions">
 		<thead>
 			<tr>
@@ -9,5 +10,4 @@
 		<%= render :partial => "versions/version", :collection => @project.versions.order("created_at ASC"), :as => 'version' %>
 	</table>
 </div>
-<%= render 'versions/add_version', :version => @project.versions.build %>
 <%= link_to "Back to projects", projects_path %>
