@@ -7,6 +7,11 @@ $(document).ready(function() {
         /*location.reload();*/
         zerocl();
     })
+
+    $('.maket_up').click(function () {
+        var btn = $(this)
+        btn.button('loading')
+    })
 })
 
 
