@@ -1,6 +1,11 @@
 <div class="jumbotron">
 	<h3>Makets</h3>
 	<table class="table table-hover makets">
+		<thead>
+			<tr>
+				<th>Name</th>
+			</tr>
+		</thead>
 		<%= render :partial => "makets/maket", :collection => @version.makets, :as => 'maket' %>
 	</table>
 </div>
