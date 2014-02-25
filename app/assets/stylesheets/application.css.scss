@@ -15,13 +15,16 @@
 @import "bootstrap";
 
 .container {
-	width: 730px;
+	width: 970px;
 }
 
 .breadcrumb {
 	margin-bottom: 0;
 	border-bottom: 1px solid #e5e5e5;
-	font-size: 16px;
+	font-size: 20px;
+	.active {
+		color: #000;
+	}
 }
 
 .header {
@@ -71,4 +74,16 @@ a:hover {
 
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
 	background-color: #805AD1; 	
+}
+
+.table > thead > tr > td.warning, .table > thead > tr > th.warning, .table > thead > tr.warning > td, .table > thead > tr.warning > th, .table > tbody > tr > td.warning, .table > tbody > tr > th.warning, .table > tbody > tr.warning > td, .table > tbody > tr.warning > th, .table > tfoot > tr > td.warning, .table > tfoot > tr > th.warning, .table > tfoot > tr.warning > td, .table > tfoot > tr.warning > th {
+	padding: 15px;
+}
+
+h3 {
+	margin-top: 0;
+}
+
+.form-inline {
+	margin-bottom: 10px;
 }

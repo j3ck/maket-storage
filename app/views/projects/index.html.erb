@@ -2,7 +2,13 @@
   <li class="active">Projects</li>
 </ol>
 <div class="jumbotron">
+  <%= link_to 'New Project', new_project_path %>
   <table class="table table-hover ">
+    <thead>
+      <tr>
+        <th>Name</th>
+      </tr>
+    </thead>
     <% @projects.each do |project| %>
       <tr class="warning">
         <td><%= link_to (project.name), project %></td>
@@ -16,5 +22,3 @@
     <% end %>
   </table>
 </div>
-
-<%= link_to 'New Project', new_project_path %>
