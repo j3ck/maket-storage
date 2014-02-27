@@ -11,7 +11,7 @@ class Maket < ActiveRecord::Base
 	validates :name, presence: { message: "не может быть пустым" }
 	validates :name, length: { minimum: 1, message: "длина должна быть минимум один символ" }
 	validates :image, presence: { message: "не может быть пустым" }
-	validates :image_fingerprint, { message: "такой макет уже существует" }
+	validates :image_fingerprint, uniqueness: { message: "такой макет уже существует" }
 
 	def to_param
 		image_fingerprint
