@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
 
   rescue_from CanCan::AccessDenied do |exception|
-    flash[:error] = "Access denied."
+    flash[:error] = "Доступ запрещен."
     redirect_to projects_url
   end
 end

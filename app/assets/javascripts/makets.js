@@ -35,7 +35,7 @@ function zerocl() {
             client.setText(this.href);
         });
         client.on( 'complete', function(client, args) {
-          alert("Link copied to clipboard");
+          alert("Ссылка скопирована в буффер обмена");
         });
     });
 

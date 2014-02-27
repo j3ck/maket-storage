@@ -1,23 +1,26 @@
 <ol class="breadcrumb">
-  <li class="active">Projects</li>
+  <li class="active">Все проекты</li>
 </ol>
 <div class="jumbotron">
-  <%= link_to 'New Project', new_project_path, class: "btn btn-success btn-sm" %>
+  <%= link_to 'Добавить новый проект', new_project_path, class: "btn btn-success btn-sm" %>
   <table class="table table-hover ">
     <thead>
       <tr>
-        <th>Name</th>
+        <th>Название</th>
+        <% if current_user.role == "Administrator" %>
+          <th>Создатель</th>
+        <% end %>
       </tr>
     </thead>
     <% @projects.each do |project| %>
       <tr class="warning">
         <td><%= link_to (project.name), project %></td>
         <% if current_user.role == "Administrator" %>
-          <td>Creator: <%= project.user.email %></td>
+          <td><%= project.user.email %></td>
         <% end %>
-        <td><%= link_to 'Show', project %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Просмотр', project %></td>
+        <td><%= link_to 'Редактирование', edit_project_path(project) %></td>
+        <td><%= link_to 'Удалить', project, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
       </tr>
     <% end %>
   </table>

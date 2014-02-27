@@ -1,13 +1,13 @@
 <div class="jumbotron">
-	<h3>Makets</h3>
+	<h3>Макеты</h3>
 	<%= render 'makets/add_maket', :maket => @version.makets.build %>
 	<table class="table table-hover makets">
 		<thead>
 			<tr>
-				<th>Name</th>
+				<th>Название</th>
 			</tr>
 		</thead>
 		<%= render :partial => "makets/maket", :collection => @version.makets.order("created_at ASC"), :as => 'maket' %>
 	</table>
 </div>
-<%= link_to "Back to versions", @version.project %>
+<%= link_to "Вернуться к версиям", @version.project %>
