@@ -4,7 +4,7 @@
   <% if version.errors.any? %>
     <div class="panel panel-danger">
       <div class="panel-heading">
-      	<%= pluralize(version.errors.count, "error") %> prohibited this version from being saved:
+      	Ошибки при сохранении версии:
       </div>
 
       <ul>
@@ -15,9 +15,9 @@
     </div>
   <% end %>
 
-	<%= f.text_field "name", placeholder: "Version tag", class: "form-control"%>
+	<%= f.text_field "name", placeholder: "Тег версии", class: "form-control"%>
 	<%= f.hidden_field :project_id, :value => version.project_id %>
 
-	<%= f.submit "Add New Version", class: "btn btn-success btn-sm" %>
+	<%= f.submit "Добавить новую версию", class: "btn btn-success btn-sm" %>
 <% end %>
 </div>
