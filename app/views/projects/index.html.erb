@@ -7,16 +7,19 @@
     <thead>
       <tr>
         <th>Название</th>
+        <% if current_user.role == "Administrator" %>
+          <th>Создатель</th>
+        <% end %>
       </tr>
     </thead>
     <% @projects.each do |project| %>
       <tr class="warning">
         <td><%= link_to (project.name), project %></td>
         <% if current_user.role == "Administrator" %>
-          <td>Creator: <%= project.user.email %></td>
+          <td><%= project.user.email %></td>
         <% end %>
         <td><%= link_to 'Просмотр', project %></td>
-        <td><%= link_to 'Редактироватние', edit_project_path(project) %></td>
+        <td><%= link_to 'Редактирование', edit_project_path(project) %></td>
         <td><%= link_to 'Удалить', project, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
       </tr>
     <% end %>
