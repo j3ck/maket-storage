@@ -1,5 +1,5 @@
 <tr class="warning">
 	<td><%= link_to (version.name), project_version_path(version.project.id, version) %></td>
-	<td><%= link_to "show", project_version_path(version.project.id, version) %></td>
-	<td><%= link_to "delete", project_version_path(version.project_id, version), method: :delete, data: { confirm: 'Are you sure?' }  %></td>
+	<td><%= link_to "Просмотр", project_version_path(version.project.id, version) %></td>
+	<td><%= link_to "Удалить", project_version_path(version.project_id, version), method: :delete, data: { confirm: 'Вы уверены?' }  %></td>
 </tr>

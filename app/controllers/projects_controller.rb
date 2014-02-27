@@ -35,7 +35,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
-        format.html { redirect_to @project, notice: 'Project was successfully created.' }
+        format.html { redirect_to @project, notice: 'Проект успешно создан!' }
         format.json { render action: 'show', status: :created, location: @project }
       else
         format.html { render action: 'new' }
@@ -49,7 +49,7 @@ class ProjectsController < ApplicationController
   def update
     respond_to do |format|
       if @project.update(project_params)
-        format.html { redirect_to @project, notice: 'Project was successfully updated.' }
+        format.html { redirect_to @project, notice: 'Проект успешно изменен.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -84,7 +84,7 @@ class ProjectsController < ApplicationController
       unless current_user.role == "Administrator"
         unless @project.user_id == current_user.id
           redirect_to(projects_url)
-          flash[:error] = "Access denied."
+          flash[:error] = "Доступ запрещен."
         end
       end
     end

@@ -4,7 +4,7 @@
 	<% if maket.errors.any? %>
 	    <div class="panel panel-danger">
 	      <div class="panel-heading">
-	      	<%= pluralize(maket.errors.count, "error") %> prohibited this maket from being saved:
+	      	Ошибки при сохранении проекта:
 	      </div>
 
 	      <ul>
@@ -15,12 +15,12 @@
 	    </div>
   	<% end %>
 
-  <%= f.text_field :name, placeholder: "Maket name", class: "form-control" %>
+  <%= f.text_field :name, placeholder: "Название макета", class: "form-control" %>
   <div class="form-group">
     <%= f.file_field :image %>
     <%= f.hidden_field :version_id, :value => maket.version_id %>
   </div>
 
-  <%= f.submit "Add Maket", class: "btn btn-success btn-sm maket_up" %>
+  <%= f.submit "Добавить макет", class: "btn btn-success btn-sm maket_up" %>
 <% end %>
 </div>

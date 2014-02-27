@@ -1,9 +1,7 @@
-<%= form_for @user do |f| %>
-
 	<% if @user.errors.any? %>
 		<div class="panel panel-danger">
 		  <div class="panel-heading">
-		    <%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:
+		    Ошибки при сохранении пользователя:
 		  </div>
 
 		  <ul>
@@ -15,21 +13,18 @@
 	<% end %>
 
 <div class="form-group">
-  <%= f.email_field :email, :autofocus => true, class:"form-control", placeholder: "Email address" %>
+  <%= f.email_field :email, :autofocus => true, class:"form-control", placeholder: "Email адрес" %>
 </div>
 
 <div class="form-group">
-  <%= f.label :role %>
+  <%= f.label "Роль" %>
   <%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
 </div>
 
 <div class="form-group">
-  <%= f.password_field :password, class:"form-control", placeholder: "Password" %>
+  <%= f.password_field :password, class:"form-control", placeholder: "Пароль" %>
 </div>
 
 <div class="form-group">
-  <%= f.password_field :password_confirmation, class:"form-control", placeholder: "Password confirmation" %>
+  <%= f.password_field :password_confirmation, class:"form-control", placeholder: "Подтверждение пароля" %>
 </div>
-
-<%= f.submit class: "btn btn-success" %>
-<% end %>

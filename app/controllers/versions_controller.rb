@@ -43,7 +43,7 @@ class VersionsController < ApplicationController
       		unless current_user.role == "Administrator"
       			unless @version.project.user_id == current_user.id
 	      			redirect_to(@version.project)
-	      			flash[:error] = "Access denied."
+	      			flash[:error] = "Доступ запрещен."
       			end
     		end
     	end
