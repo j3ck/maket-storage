@@ -67,16 +67,9 @@ en:
             email:
               blank: "не может быть пустым"
               taken: "данный email адрес занят"
-              invalid: "Please Specify a valid Email id"
             password:
               blank: "не может быть пустым"
-              confirmation: "Password does not match"
               too_short:
                 other: 'недостаточной длины (не может быть меньше %{count} символов)'
             password_confirmation:
-              blank: "Please Specify a Password Confirmation"
               confirmation: "не совпадает"
-            first_name:
-              blank: "Please Specify First Name"
-            last_name:
-              blank: "Please Specify Last Name"
