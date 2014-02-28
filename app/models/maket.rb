@@ -8,10 +8,11 @@ class Maket < ActiveRecord::Base
     :hash_secret => "longSecretString"
 }
 
-	validates :name, presence: { message: "не может быть пустым" }
-	validates :name, length: { minimum: 1, message: "длина должна быть минимум один символ" }
-	validates :image, presence: { message: "не может быть пустым" }
-	validates :image_fingerprint, uniqueness: { message: "такой макет уже существует" }
+	validates :name, presence: true
+	validates :name, length: { minimum: 1 }
+	validates :image, presence: true
+	validates_attachment :image, :content_type => { :content_type => ["image/jpg", "image/jpeg", "image/png"] }
+	validates :image_fingerprint, uniqueness: true
 
 	def to_param
 		image_fingerprint
