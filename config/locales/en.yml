@@ -21,39 +21,55 @@
 
 en:
   activerecord:
+    attributes:
+      user:
+        email: "Email адрес"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
+      project:
+        name: "Название"
+      version:
+        name: "Тег"
+      maket:
+        name: "Название"
+        image: "Макет"
+        image_fingerprint: ""
+        image_content_type: "Тип макета"
     errors:
       models:
+        maket:
+          attributes:
+            name:
+              blank: "не может быть пустым"
+              too_short:
+                one: 'недостаточной длины (не может быть меньше %{count} символа)'
+            image:
+              blank: "не может быть пустым"
+            image_content_type:
+              invalid: "неверный тип (только jpeg, jpg, png)"
+            image_fingerprint:
+              taken: "Такой макет уже существует"
+        project:
+          attributes:
+            name:
+              blank: "не может быть пустым"
+              taken: "такое название уже существует"
+              too_short:
+                other: 'недостаточной длины (не может быть меньше %{count} символов)'
+        version:
+          attributes:
+            name:
+              blank: "не может быть пустым"
+              too_short:
+                other: 'недостаточной длины (не может быть меньше %{count} символов)'
         user:
           attributes:
             email:
               blank: "не может быть пустым"
               taken: "данный email адрес занят"
-              invalid: "Please Specify a valid Email id"
             password:
               blank: "не может быть пустым"
-              confirmation: "Password does not match"
+              too_short:
+                other: 'недостаточной длины (не может быть меньше %{count} символов)'
             password_confirmation:
-              blank: "Please Specify a Password Confirmation"
-            first_name:
-              blank: "Please Specify First Name"
-            last_name:
-              blank: "Please Specify Last Name"
-        pdf:
-          attributes:
-            name:
-              blank: "Please Specify name to PDF"
-              taken: "Please use different name for PDF"
-            attachment:
-              blank: "Please Upload a PDF Attachment"
-        data_element:
-          attributes:
-            name:
-              blank: "Please give Element a desired name"
-              taken: "Already Created Element with given name"
-            color:
-              blank: "Please assign a color to Element"
-        template:
-          attributes:
-            name:
-              blank: "Please Specify a Name"
-              taken: "Please use a different name"
+              confirmation: "не совпадает"
