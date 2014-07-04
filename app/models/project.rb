@@ -5,4 +5,5 @@ class Project < ActiveRecord::Base
 	validates :name, presence: true
 	validates :name, length: { minimum: 2 }
 	validates :name, uniqueness: true
+	validates :user_id, presence: true
 end
