@@ -1,4 +1,5 @@
 require "rails_helper.rb"
+require "cancan/matchers"
 
 describe ProjectsController do
 
@@ -22,24 +23,22 @@ describe ProjectsController do
 		end
 	end
 
-	describe "GET create" do
-		it "should be http success" do
-			get 'create'
-			expect(response).to be_success
-		end
-	end
-
 	describe "GET destroy" do
 		it "should be http success" do
 			get 'destroy', :id => @project.id
-			expect(response).to be_success
+			expect(response.status).to eq(302)
 		end
 	end
 
 	describe "GET index" do
 		it "should be http success" do
 			get :index
-			expect(assings(:projects)).to eq([@project])
+			expect(response).to be_success
+		end
+
+		it "render index template" do
+			get :index
+			expect(response).to render_template(:index)
 		end
 	end
 end
