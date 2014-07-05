@@ -19,4 +19,18 @@ before {
 			expect(response).to render_template(:show)
 		end
 	end
+
+	describe "DELETE destory" do
+		it "delete status" do
+			delete :destroy, { :project_id => @version.project.id, :id=> @version.id }
+			expect(response.status).to eq(302)
+		end
+	end
+
+	describe "POST create" do
+		it "post success status" do
+			xhr :post, :create, { :project_id => @version.project.id, :version => { name: "Vers", project_id: @version.project.id } }
+			expect(response).to be_success
+		end
+	end
 end
